@@ -2,6 +2,8 @@ import React from 'react'
 import iconSet from "../../Icons/food-stuff-icon/selection.json";
 import IcomoonReact, { iconList } from "icomoon-react";
 
+import './LandingPage.css'
+
 function LandingPage(props) {
     console.log(iconList(iconSet))
     return (
