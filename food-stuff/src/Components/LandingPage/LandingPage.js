@@ -8,8 +8,8 @@ function LandingPage(props) {
     console.log(iconList(iconSet))
     return (
         <div className='LandingPage'>
-            <div className='fsIconContainer'><IcomoonReact className='fsIcon' iconSet={iconSet} size={150} color='darkred' icon='food-stuff'/></div>
-            <h3 className='intro'>A place to conveniently find, price, and list all of your food stuff.</h3>
+            <h3 className='intro'>A place to conveniently create a list of, find, and price all of your food stuff.</h3>
+            <div className='fsIconContainer'><IcomoonReact className='fsIcon' iconSet={iconSet} size={125} color='darkred' icon='food-stuff'/></div>
         </div>
     )
 }
