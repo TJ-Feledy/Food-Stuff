@@ -2,7 +2,7 @@
   text-align: center;
   height: 100%;
   width: 100%;
-  background-color: rgb(255, 254, 246);
+  background-image: linear-gradient(to top, rgb(255, 254, 246) 70%, rgb(58, 58, 58) 70%, white 71.5%);
 }
 #root {
   height: 100%;
