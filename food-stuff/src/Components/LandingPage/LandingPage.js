@@ -12,10 +12,10 @@ function LandingPage(props) {
             <h3 className='intro'>A place to conveniently create a list of, find, and price all of your food stuff.</h3>
             <div className='fsIconContainer'><IcomoonReact className='fsIcon' iconSet={iconSet} size={125} color='darkred' icon='food-stuff'/></div>
             <div className='landingNavContainer'>
-                <h5 className='joinUs'>It's time to make a grocery list like a boss!</h5>
+                <h4 className='joinUs'>It's time to make a grocery list like a boss!</h4>
                 <div className='landingLinksContainer'>
                     <Link className='registerLink' to='#'>Register</Link>
-                    <Link className='loginLink' to='#'>Login</Link>
+                    <Link className='registerLink' to='#'>Login</Link>
                 </div>
             </div>
         </div>
