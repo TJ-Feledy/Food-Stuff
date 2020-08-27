@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to top, rgb(255, 254, 246) 90%, rgb(58, 58, 58) 90%, white 91.5%);
+}
+#root {
+  height: 100%;
+  width: 100%;
+}
+.routeSection {
+  height: 100%;
+  width: 100%;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
