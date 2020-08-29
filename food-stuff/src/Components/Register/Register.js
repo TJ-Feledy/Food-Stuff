@@ -6,7 +6,8 @@ function Register(props) {
             <h4 className='welcome'>Welcome to Food-Stuff!</h4>
             <h5 className='registerIntro'>Please create a username and password to get started.</h5>
             <form className='registerForm'>
-                
+                <label to='username'>Username</label>
+                <input type='text' id='username' name='username' required />
             </form>
         </div>
     )
