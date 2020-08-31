@@ -8,6 +8,8 @@ function Register(props) {
             <form className='registerForm'>
                 <label to='username'>Username</label>
                 <input type='text' id='username' name='username' required />
+                <label to='password'>Password</label>
+                <input type='text' id='password' name='password' required />
             </form>
         </div>
     )
