@@ -29,10 +29,22 @@ class Register extends React.Component {
             this.setState({
                 passColor: newPassColor
             })
+
+            // check that all fields are ready to submit and change displayButton accordingly
+            console.log(this.state.username.length, this.state.passColor)
+            if (this.state.username.length > 0 && this.state.password.length >= 8) {
+                this.setState({
+                    displayButton: true
+                }, ()=>{console.log('true')})
+            }else {
+                this.setState({
+                    displayButton: false
+                }, ()=>{console.log('false')})
+            }
         })
-        
     }
 
+    
     render() {
         return (
             <div className='Register'>
@@ -41,14 +53,14 @@ class Register extends React.Component {
                 <form className='registerForm'>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='username'>Username</label>
-                        <input className='registerInput' type='text' id='username' name='username' required />
+                        <input className='registerInput' type='text' id='username' name='username' value={this.state.username} required onChange={this.changeHandler}/>
                     </div>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='password'>Password</label>
-                        <input className='registerInput' type='text' id='password' name='password' minLength='8' required onChange={this.changeHandler} />
+                        <input className='registerInput' type='text' id='password' name='password' minLength='8' value={this.state.password} required onChange={this.changeHandler} />
                         <h6 className='passwordRequirement' style={{color: this.state.passColor}}>* Password must contain 8 characters</h6>
                     </div>
-                    <button className='submitButton'>Create Account</button>
+                    {this.state.displayButton ? <button className='submitButton'>Create Account</button> : null}
                 </form>
             </div>
         )
