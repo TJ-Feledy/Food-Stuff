@@ -9,7 +9,9 @@ function Nav() {
     return (
         <div className='Nav'>
             <Logo />
-            {window.location.pathname === '/register' ? <Link className='loginLink' to='#'>Login</Link> : <>menu</>}
+            {window.location.pathname === '/register' ? <Link className='loginLink' to='/login'>Login</Link> : 
+                window.location.pathname === '/login' ? <Link className='loginLink' to='/register'>Create Account</Link> :   
+            <>menu</>}
         </div>
     )
 }
