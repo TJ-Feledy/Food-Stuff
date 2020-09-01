@@ -15,9 +15,19 @@ class Register extends React.Component {
     // handle input change
     changeHandler = (evt) => {
         evt.preventDefault()
-        // check length of password and set passColor state to green if 8+ charactors
         this.setState({
-            [evt.target.name]: evt.target.value
+            [evt.target.name]: evt.target.value,
+        }, () => {
+            // check length of password and set passColor state to green if 8+ characters
+            let passLength = this.state.password.length
+            console.log(passLength)
+            let newPassColor = 'red'
+            if (passLength >= 8) {
+                newPassColor = 'green'
+            }
+            this.setState({
+                passColor: newPassColor
+            })
         })
         
     }
@@ -34,7 +44,7 @@ class Register extends React.Component {
                     </div>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='password'>Password</label>
-                        <input className='registerInput' type='text' id='password' name='password' minLength='8' required />
+                        <input className='registerInput' type='text' id='password' name='password' minLength='8' required onChange={this.changeHandler} />
                         <h6 className='passwordRequirement' style={{color: this.state.passColor}}>* Password must contain 8 characters</h6>
                     </div>
                 </form>
