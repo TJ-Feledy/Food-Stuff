@@ -5,6 +5,11 @@
     justify-content: center;
     height: 100%;
 }
+.welcome {
+    position: absolute;
+    top: 10px;
+    width: 50%;
+}
 .registerForm {
     display: flex;
     flex-flow: column;
