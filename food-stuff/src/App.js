@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 import Nav from './Components/Nav/Nav.js'
 import LandingPage from './Components/LandingPage/LandingPage.js'
 import Register from './Components/Register/Register.js'
 
 function App({location}, props) {
-  console.log(location, ' props ', props)
+  console.log(window.location.pathname, ' props ', props)
   return (
     <div className="App">
       {window.location.pathname !== '/' ? <Nav/> : null}
@@ -21,4 +21,4 @@ function App({location}, props) {
   );
 }
 
-export default App;
+export default withRouter(App);
