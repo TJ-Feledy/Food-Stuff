@@ -1,0 +1,3 @@
+[submodule "food-stuff/Food-Stuff-BackEnd"]
+	path = food-stuff/Food-Stuff-BackEnd
+	url = https://github.com/TJ-Feledy/Food-Stuff-BackEnd
