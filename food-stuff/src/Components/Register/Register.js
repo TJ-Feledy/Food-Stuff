@@ -7,20 +7,26 @@ class Register extends React.Component {
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            passcolor: 'red',
         }
     }
 
     render() {
         return (
             <div className='Register'>
-                <h4 className='welcome'>Welcome to Food-Stuff!</h4>
-                <h5 className='registerIntro'>Please create a username and password to get started.</h5>
+                <h2 className='welcome'>Welcome to Food-Stuff!</h2>
+                <h4 className='registerIntro'>Please create a username and password to get started.</h4>
                 <form className='registerForm'>
-                    <label to='username'>Username</label>
-                    <input type='text' id='username' name='username' required />
-                    <label to='password'>Password</label>
-                    <input type='text' id='password' name='password' required />
+                    <div className='registerInputContainer'>
+                        <label className='registerLabel' to='username'>Username</label>
+                        <input className='registerInput' type='text' id='username' name='username' required />
+                    </div>
+                    <div className='registerInputContainer'>
+                        <label className='registerLabel' to='password'>Password</label>
+                        <input className='registerInput' type='text' id='password' name='password' minLength='8' required />
+                        <h6 className='passwordRequirement' style={{color: this.state.passcolor}}>* Password must contain 8 characters</h6>
+                    </div>
                 </form>
             </div>
         )
