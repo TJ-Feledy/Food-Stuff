@@ -21,7 +21,6 @@ class Register extends React.Component {
         }, () => {
             // check length of password and set passColor state to green if 8+ characters
             let passLength = this.state.password.length
-            console.log(passLength)
             let newPassColor = 'red'
             if (passLength >= 8) {
                 newPassColor = 'limegreen'
@@ -31,15 +30,14 @@ class Register extends React.Component {
             })
 
             // check that all fields are ready to submit and change displayButton accordingly
-            console.log(this.state.username.length, this.state.passColor)
             if (this.state.username.length > 0 && this.state.password.length >= 8) {
                 this.setState({
                     displayButton: true
-                }, ()=>{console.log('true')})
+                })
             }else {
                 this.setState({
                     displayButton: false
-                }, ()=>{console.log('false')})
+                })
             }
         })
     }
