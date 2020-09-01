@@ -11,7 +11,7 @@ function App({location}, props) {
     <div className="App">
       <section className='routeSection'>
         <Switch location={location}>
-          <Route path='/' render={props => <LandingPage {...props} />}/>
+          <Route exact path='/' render={props => <LandingPage {...props} />}/>
           <Route path='/register' render={props => <Register {...props} />}/>
         </Switch>
       </section>
