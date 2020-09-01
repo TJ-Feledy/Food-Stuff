@@ -6,7 +6,7 @@ import './Logo.css'
 
 function Logo() {
     return (
-        <div className='fsIconContainer'><IcomoonReact className='fsIcon' iconSet={iconSet} size={125} color='darkred' icon='food-stuff'/></div>
+        <div className='logoContainer'><IcomoonReact className='fsIcon' iconSet={iconSet} size={40} color='darkred' icon='food-stuff'/></div>
     )
 }
 
