@@ -16,7 +16,7 @@ function LandingPage(props) {
                 <div className='landingLinksContainer'>
                     <Link className='registerLink' to='/register'>Register</Link>
                     <h4 className='or'>- or -</h4>
-                    <Link className='registerLink' to='#'>Login</Link>
+                    <Link className='registerLink' to='/login'>Login</Link>
                 </div>
             </div>
         </div>
