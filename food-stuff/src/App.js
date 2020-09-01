@@ -5,6 +5,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import Nav from './Components/Nav/Nav.js'
 import LandingPage from './Components/LandingPage/LandingPage.js'
 import Register from './Components/Register/Register.js'
+import Login from './Components/Login/Login.js'
 
 function App({location}, props) {
   console.log(window.location.pathname, ' props ', props)
@@ -15,6 +16,7 @@ function App({location}, props) {
         <Switch location={location}>
           <Route exact path='/' render={props => <LandingPage {...props} />}/>
           <Route path='/register' render={props => <Register {...props} />}/>
+          <Route path='/login' render={props => <Login {...props} />}/>
         </Switch>
       </section>
     </div>

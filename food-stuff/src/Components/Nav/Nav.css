@@ -1,6 +1,14 @@
 .Nav {
     display: flex;
     align-items: center;
-    padding: 1rem .25rem;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 1rem;
     width: 100%;
+}
+.loginLink {
+    text-decoration: none;
+    font-weight: bold;
+    color: darkred;
+    font-size: 1.1rem;
 }
