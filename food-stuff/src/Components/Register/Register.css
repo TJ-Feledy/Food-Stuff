@@ -33,6 +33,8 @@
 .registerInput {
     border-radius: 5px;
     border-color: darkred;
+    padding: 2px 5px;
+    text-align: center;
 }
 .passwordRequirement {
     margin: .2rem 0;
