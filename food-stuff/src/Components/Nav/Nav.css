@@ -1,0 +1,6 @@
+.Nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem .25rem;
+    width: 100%;
+}

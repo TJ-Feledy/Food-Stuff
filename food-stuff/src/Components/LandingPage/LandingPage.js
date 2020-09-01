@@ -14,7 +14,7 @@ function LandingPage(props) {
             <div className='landingNavContainer'>
                 <h4 className='joinUs'>It's time to make a grocery list like a boss!</h4>
                 <div className='landingLinksContainer'>
-                    <Link className='registerLink' to='#'>Register</Link>
+                    <Link className='registerLink' to='/register'>Register</Link>
                     <h4 className='or'>- or -</h4>
                     <Link className='registerLink' to='#'>Login</Link>
                 </div>

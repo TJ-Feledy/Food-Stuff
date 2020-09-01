@@ -1,0 +1,11 @@
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(ellipse at bottom right, rgb(218, 193, 155) 50%, white);
+    height: 1.25rem;
+    width: 4rem;
+    padding: 1rem;
+    border-radius: 100%;
+    border: 3px solid black;
+}
