@@ -9,6 +9,7 @@ class Register extends React.Component {
             username: '',
             password: '',
             passColor: 'red',
+            displayButton: false,
         }
     }
 
@@ -23,7 +24,7 @@ class Register extends React.Component {
             console.log(passLength)
             let newPassColor = 'red'
             if (passLength >= 8) {
-                newPassColor = 'green'
+                newPassColor = 'limegreen'
             }
             this.setState({
                 passColor: newPassColor
@@ -47,6 +48,7 @@ class Register extends React.Component {
                         <input className='registerInput' type='text' id='password' name='password' minLength='8' required onChange={this.changeHandler} />
                         <h6 className='passwordRequirement' style={{color: this.state.passColor}}>* Password must contain 8 characters</h6>
                     </div>
+                    <button className='submitButton'>Create Account</button>
                 </form>
             </div>
         )
