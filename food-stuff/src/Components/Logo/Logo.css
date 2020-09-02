@@ -7,5 +7,6 @@
     width: 4rem;
     padding: 1rem;
     border-radius: 100%;
-    border: 2px solid black;
+    /* border: .25px solid rgba(0, 0, 0, 0.185); */
+    box-shadow: 14px 13px 20px -12px black;
 }

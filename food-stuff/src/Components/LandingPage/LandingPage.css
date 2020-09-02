@@ -20,7 +20,8 @@
     padding: 2rem;
     margin: 10rem 0 1rem;
     border-radius: 100%;
-    border: 3px solid black;
+    border: .25px solid rgba(0, 0, 0, 0.075);
+    box-shadow: 33px 40px 45px -35px black;
 }
 
 .landingLinksContainer {
@@ -29,19 +30,24 @@
     margin-bottom: 10rem;
 }
 .registerLink {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     background-color: darkred;
     color: white;
     border: 2px solid black;
     border-radius: 20px;
     padding: 3px;
-    width: 6rem;
+    width: 6.5rem;
     font-weight: bold;
 }
 .registerLink:hover {
     background-image: radial-gradient(ellipse, rgba(255, 255, 255, 0.493), darkred);
     box-shadow: 0px 2px 7px 0px black;
     text-shadow: 1px 2px 3px black, 0 0 0 white, 1px 2px 3px black;
+    border-width: 1px;
 }
 .or {
     margin: 0;
