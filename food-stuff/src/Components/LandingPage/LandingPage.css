@@ -20,7 +20,8 @@
     padding: 2rem;
     margin: 10rem 0 1rem;
     border-radius: 100%;
-    border: 3px solid black;
+    border: .25px solid rgba(0, 0, 0, 0.075);
+    box-shadow: 33px 40px 45px -35px black;
 }
 
 .landingLinksContainer {
