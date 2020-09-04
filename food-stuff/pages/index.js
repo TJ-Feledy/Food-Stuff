@@ -1,12 +1,10 @@
 import Link from 'next/link'
-// import Logo from '../src/Components/Logo/Logo.js'
+import Logo from '../src/Components/Logo/Logo.js'
 
 function Home() {
     return (
         <div>
-            {/* <Link href='/'>
-                <a title='Food Stuff Logo'><Logo/></a>
-            </Link> */}
+            <Logo/>
             <h1>Temporary Homepage Content</h1>
         </div>
     )
