@@ -1,9 +1,7 @@
-import React from 'react'
-import iconSet from "../../Icons/food-stuff-icon/selection.json";
+import iconSet from '../src/Icons/food-stuff-icon/selection.json';
 import IcomoonReact, { iconList } from "icomoon-react";
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
-import './LandingPage.css'
 
 function LandingPage(props) {
     console.log(iconList(iconSet))
@@ -14,9 +12,9 @@ function LandingPage(props) {
             <div className='landingNavContainer'>
                 <h4 className='joinUs'>It's time to make a grocery list like a boss!</h4>
                 <div className='landingLinksContainer'>
-                    <Link className='registerLink' to='/register'>Register</Link>
+                    <Link href='/register'><a className='registerLink' title='Register'>Register</a></Link>
                     <h4 className='or'>- or -</h4>
-                    <Link className='registerLink' to='/login'>Login</Link>
+                    <Link href='/login'><a className='registerLink' title='Login'>Login</a></Link>
                 </div>
             </div>
         </div>
