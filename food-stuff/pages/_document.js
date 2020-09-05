@@ -6,7 +6,6 @@ class MyDocument extends Document {
             <html>
                 <Head>
                     <title>Food-Stuff</title>
-                    <link rel='stylesheet' href='/_next/static/style.css' />
                 </Head>
                 <body>
                     <Main />
