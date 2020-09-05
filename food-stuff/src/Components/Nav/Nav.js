@@ -1,19 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 import Logo from '../Logo/Logo.js'
+import { withRouter } from 'next/router'
 
-import './Nav.css'
 
-function Nav() {
+function Nav({ router }) {
     return (
         <div className='Nav'>
             <Logo />
-            {window.location.pathname === '/register' ? <Link className='loginLink' to='/login'>Login</Link> : 
-                window.location.pathname === '/login' ? <Link className='loginLink' to='/register'>Register</Link> :   
+            {router.pathname === '/register' ? <Link  href='/login'><a title='Go To Login' className='loginLink'>Login</a></Link> : 
+                router.pathname === '/login' ? <Link  href='/register'><a title='Go To Register' className='loginLink'>Register</a></Link> :   
             <>menu</>}
         </div>
     )
 }
 
-export default Nav
+export default withRouter(Nav)

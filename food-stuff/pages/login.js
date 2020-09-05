@@ -1,6 +1,6 @@
 
 
-class Register extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -44,8 +44,8 @@ class Register extends React.Component {
     render() {
         return (
             <div className='Register'>
-                <h2 className='welcome'>Welcome to Food-Stuff!</h2>
-                <h4 className='registerIntro'>Please create a username and password to get started.</h4>
+                <h2 className='welcome'>Welcome Back!</h2>
+                <h4 className='registerIntro'>Type in your info to get started.</h4>
                 <form className='registerForm'>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='username'>Username</label>
@@ -56,11 +56,11 @@ class Register extends React.Component {
                         <input className='registerInput' type='text' id='password' name='password' minLength='8' value={this.state.password} required onChange={this.changeHandler} />
                         <h6 className='passwordRequirement' style={{color: this.state.passColor}}>* Password must contain 8 characters</h6>
                     </div>
-                    {this.state.displayButton ? <button className='submitButton'>Create Account</button> : null}
+                    {this.state.displayButton ? <button className='submitButton'>Log In</button> : null}
                 </form>
             </div>
         )
     }
 }
 
-export default Register
+export default Login
