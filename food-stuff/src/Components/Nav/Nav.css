@@ -12,3 +12,6 @@
     color: darkred;
     font-size: 1.1rem;
 }
+.loginLink:hover {
+    text-decoration: underline;
+}

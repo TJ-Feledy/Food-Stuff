@@ -1,4 +1,4 @@
-import iconSet from '../src/Icons/food-stuff-icon/selection.json';
+import iconSet from '../../Icons/food-stuff-icon/selection.json';
 import IcomoonReact, { iconList } from "icomoon-react";
 import Link from 'next/link'
 

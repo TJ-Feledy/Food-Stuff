@@ -21,3 +21,6 @@ body {
   width: 100%;
   background-color: rgb(255, 254, 246);
 }
+#__next {
+  height: 100%;
+}
