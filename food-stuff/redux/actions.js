@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import * as actionTypes from '../types.js'
+import * as actionTypes from './types.js'
 
 export const createUser = (username, password) => {
     return (dispatch) => {

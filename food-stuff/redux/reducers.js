@@ -1,4 +1,4 @@
-import * as actionTypes from '../types.js'
+import * as actionTypes from './types.js'
 
 const [
     CREATE_USER_START,
