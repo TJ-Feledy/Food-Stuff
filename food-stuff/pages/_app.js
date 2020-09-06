@@ -1,22 +1,23 @@
-import '../src/App.css'
-import '../src/index.css'
-import '../src/Components/Logo/Logo.css'
-import '../src/Components/LandingPage/LandingPage.css'
-import '../src/Components/Login/Login.css'
-import '../src/Components/Nav/Nav.css'
-import '../src/Components/Register/Register.css'
+import '../scss/style.scss'
 
+import { Provider } from 'react-redux'
+import { useStore } from '../redux/store'
 import Nav from '../src/Components/Nav/Nav.js'
 import { withRouter } from 'next/router'
+import Head from 'next/head'
 
 
 function MyApp({ Component, pageProps, router }) {
-    console.log(router.pathname, 'path!!!')
+    const store = useStore(pageProps.initialReduxState)
+
     return (
-      <div className='App'>
-        {router.pathname !== '/' ? <Nav/> : null}
-        <Component {...pageProps} />
-      </div>
+      <Provider store={store}>
+        <div className='App'>
+          <Head><title>Food-Stuff</title></Head>
+          {router.pathname !== '/' ? <Nav/> : null}
+          <Component {...pageProps} />
+        </div>
+      </Provider>
     )
   }
 
