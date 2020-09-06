@@ -1,10 +1,6 @@
-import * as actionTypes from './types.js'
+import * as types from './types.js'
+import { combineReducers } from 'redux'
 
-const [
-    CREATE_USER_START,
-    CREATE_USER_SUCCESS,
-    CREATE_USER_FAILED
-] = actionTypes
 
 const initialState = {
     isLoading: false,
@@ -12,15 +8,16 @@ const initialState = {
     userData: {},
 }
 
-export default (state = initialState, action) => {
+// CREATE USER REDUCER
+const createUserReducer = (state = initialState, action) => {
     switch(action.type){
-        case CREATE_USER_START: {
+        case types.CREATE_USER_START: {
             return {
               ...state,
               isLoading: true,
             }
           }
-          case CREATE_USER_SUCCESS: {
+          case types.CREATE_USER_SUCCESS: {
             console.log(action.payload)
             return {
               ...state,
@@ -28,7 +25,7 @@ export default (state = initialState, action) => {
               error: null,
             }
           }
-          case CREATE_USER_FAILED: {
+          case types.CREATE_USER_FAILED: {
             console.log(action.payload)
             return {
               ...state,
@@ -40,3 +37,10 @@ export default (state = initialState, action) => {
             return {...state}
     }
 }
+
+// COMBINE REDUCERS
+const reducers = {
+  createUserReducer,
+}
+
+export default combineReducers(reducers)
