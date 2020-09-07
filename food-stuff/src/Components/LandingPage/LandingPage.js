@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 
 function LandingPage(props) {
-    console.log(iconList(iconSet))
     return (
         <div className='LandingPage'>
             <h3 className='intro'>A place to conveniently find, organize, and create a list of all of your food stuff.</h3>
