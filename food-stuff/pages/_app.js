@@ -13,7 +13,12 @@ function MyApp({ Component, pageProps, router }) {
     return (
       <Provider store={store}>
         <div className='App'>
-          <Head><title>Food-Stuff</title></Head>
+          <Head>
+            <title>Food-Stuff</title>
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <link rel="icon" type="image/x-icon" href="favicon16.ico" />
+          </Head>
           {router.pathname !== '/' ? <Nav/> : null}
           <Component {...pageProps} />
         </div>
