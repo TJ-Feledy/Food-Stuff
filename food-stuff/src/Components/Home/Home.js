@@ -4,12 +4,7 @@ import axios from 'axios'
 
 
 function Home(props) {
-    const [recipeId, setRecipeId] = useState(null)
-    const [recipeImage, setRecipeImage] = useState('')
-    const [recipeTime, setRecipeTime] = useState('')
-    const [recipeServings, setRecipeServings] = useState('')
-    const [recipeSourceUrl, setRecipeSourceUrl] = useState('')
-    const [recipeTitle, setRecipeTitle] = useState('')
+    
     const [searchQuery, setSearchQuery] = useState('')
     const [queryResults, setQueryResults] = useState(null)
 
