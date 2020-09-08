@@ -53,7 +53,7 @@ class Register extends React.Component {
                     </div>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='password'>Password</label>
-                        <input className='registerInput' type='text' id='password' name='password' minLength='8' value={this.state.password} required onChange={this.changeHandler} />
+                        <input className='registerInput' autoComplete='off' type='text' id='password' name='password' minLength='8' value={this.state.password} required onChange={this.changeHandler} />
                         <h6 className='passwordRequirement' style={{color: this.state.passColor}}>* Password must contain 8 characters</h6>
                     </div>
                     {this.state.displayButton ? <button className='submitButton'>Create Account</button> : null}
