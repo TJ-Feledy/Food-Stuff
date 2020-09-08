@@ -1,44 +1,71 @@
 import { useState, useEffect } from 'react'
+import Recipe from '../RecipeSmall/RecipeSmall'
 import axios from 'axios'
 
 
 function Home(props) {
-    const [username, setUsername] = useState('guest')
+    const [recipeId, setRecipeId] = useState(null)
+    const [recipeImage, setRecipeImage] = useState('')
+    const [recipeTime, setRecipeTime] = useState('')
+    const [recipeServings, setRecipeServings] = useState('')
+    const [recipeSourceUrl, setRecipeSourceUrl] = useState('')
+    const [recipeTitle, setRecipeTitle] = useState('')
     const [searchQuery, setSearchQuery] = useState('')
-    const [queryResults, setQueryResults] = useState([])
+    const [queryResults, setQueryResults] = useState(null)
 
     // GET REQUEST FOR RECIPE SEARCH
     const handleSearch = (evt) => {
         setSearchQuery(evt.target.value)
         axios({
             "method":"GET",
-            "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/autocomplete",
+            "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search",
             "headers":{
             "content-type":"application/octet-stream",
             "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
             "x-rapidapi-key":"128a3347eamsh5bbc03809bc5489p19fd87jsn79b91bffb34e",
             "useQueryString":true
             },"params":{
+            "diet":"none",
+            "excludeIngredients":"none",
+            "intolerances":"none",
             "number":"10",
+            "offset":"0",
+            "type":"main course",
             "query":searchQuery
             }
             })
             .then((response)=>{
-                console.log(response.data)
-                setQueryResults(response.data)
+                console.log(response.data.results)
+                setQueryResults(response.data.results)
             })
             .catch((error)=>{
               console.log(error)
             })
     }
 
+    // HANDLE SUBMIT
+    const handleSubmit = (evt) => {
+        evt.preventDefault()
+    }
+
     return (
         <div className='Home'>
             <h1 className='pageHeading'>HOME</h1>
-            <form className='searchForm'>
+            <form className='searchForm' onSubmit={handleSubmit} >
                 <input className='searchBar' id='searchBar' type='text' placeholder='Search for a recipe' onChange={handleSearch} />
                 <label className='searchBarLabel' htmlFor='searchBar' ><i className="fas fa-search searchIcon"></i></label>
             </form>
+            <section className='resultsContainer'>
+                <ul className='resultsList'>
+                    {
+                        queryResults === null ? null :
+                        queryResults.length === 0 ? <h5 className='noResults'>no results...</h5>:
+                        queryResults.map((result, index) => {
+                            return <Recipe result={result} key={index} />
+                        })
+                    }
+                </ul>
+            </section>
         </div>
     )
 }
