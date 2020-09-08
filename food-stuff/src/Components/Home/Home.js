@@ -55,7 +55,7 @@ function Home(props) {
             <h1 className='pageHeading'>HOME</h1>
             <form className='searchForm' autoComplete='off' onSubmit={handleSubmit} >
                 <input className='searchBar' id='searchBar' type='text' placeholder='Search for a recipe' autoComplete='off' onChange={handleSearch} />
-                <label className='searchBarLabel' htmlFor='searchBar' onClick={handleSubmit} ><i className="fas fa-search searchIcon"></i></label>
+                <label className='searchBarLabel' to='searchBar' onClick={handleSubmit} ><i className="fas fa-search searchIcon"></i></label>
             </form>
             <section className='resultsContainer'>
                 <ul className='resultsList'>
