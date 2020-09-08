@@ -34,9 +34,10 @@ function Home(props) {
 
     return (
         <div className='Home'>
-            <h1>HOME</h1>
-            <form className='search'>
-                <input className='searchBar' type='text' placeholder='Search for a recipe' onChange={handleSearch} />
+            <h1 className='pageHeading'>HOME</h1>
+            <form className='searchForm'>
+                <input className='searchBar' id='searchBar' type='text' placeholder='Search for a recipe' onChange={handleSearch} />
+                <label className='searchBarLabel' htmlFor='searchBar' ><i className="fas fa-search searchIcon"></i></label>
             </form>
         </div>
     )
