@@ -4,13 +4,12 @@ import axios from 'axios'
 
 
 function Home(props) {
-    
+
     const [searchQuery, setSearchQuery] = useState('')
     const [queryResults, setQueryResults] = useState(null)
 
     // GET REQUEST FOR RECIPE SEARCH
-    const handleSearch = (evt) => {
-        setSearchQuery(evt.target.value)
+    const getRecipe = () => {
         axios({
             "method":"GET",
             "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search",
@@ -38,17 +37,25 @@ function Home(props) {
             })
     }
 
+    // HANDLE SEARCH/HANDLE CHANGE
+    const handleSearch = (evt) => {
+        setSearchQuery(evt.target.value)
+        getRecipe()
+    }
+
     // HANDLE SUBMIT
     const handleSubmit = (evt) => {
         evt.preventDefault()
+        setSearchQuery(searchQuery)
+        getRecipe()
     }
 
     return (
         <div className='Home'>
             <h1 className='pageHeading'>HOME</h1>
-            <form className='searchForm' onSubmit={handleSubmit} >
-                <input className='searchBar' id='searchBar' type='text' placeholder='Search for a recipe' onChange={handleSearch} />
-                <label className='searchBarLabel' htmlFor='searchBar' ><i className="fas fa-search searchIcon"></i></label>
+            <form className='searchForm' autoComplete='off' onSubmit={handleSubmit} >
+                <input className='searchBar' id='searchBar' type='text' placeholder='Search for a recipe' autoComplete='off' onChange={handleSearch} />
+                <label className='searchBarLabel' htmlFor='searchBar' onClick={handleSubmit} ><i className="fas fa-search searchIcon"></i></label>
             </form>
             <section className='resultsContainer'>
                 <ul className='resultsList'>
