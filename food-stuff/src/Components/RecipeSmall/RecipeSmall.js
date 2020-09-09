@@ -9,6 +9,9 @@ function RecipeSmall(props) {
             <div className='resultImgContainer'>
                 <img className='resultImg' src={`https://spoonacular.com/recipeImages/${props.result.id}-312x231.jpg`} alt={'food'} />
             </div>
+            <div className='servingTimeContainer'>
+                
+            </div>
         </div>
     )
 }

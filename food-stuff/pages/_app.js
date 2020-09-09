@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps, router }) {
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <link rel="icon" type="image/x-icon" href="favicon16.ico" />
-            <script src="https://kit.fontawesome.com/db4da5fc40.js" crossorigin="anonymous" SameSite='None' Secure></script>
+            <script src="https://kit.fontawesome.com/db4da5fc40.js"></script>
           </Head>
           {router.pathname !== '/' ? <Nav/> : null}
           <Component {...pageProps} />
