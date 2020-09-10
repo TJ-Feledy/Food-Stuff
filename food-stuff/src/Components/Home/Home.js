@@ -86,8 +86,11 @@ function Home(props) {
                                 <h3 className='hiUser'>Hello {firstName}, let's see what we can find to eat.</h3>
                                 <div className='userStatsContainerWrapper'>
                                     <div className='userStatsContainer'>
-                                        <span className='userStat'><i className="fas fa-shopping-bag bagIcon"></i>Your Grocery-Bag has {groceryBag.length} recipes in it. </span>
-                                        <span className='userStat'><i className="fas fa-scroll scrollIcon"></i>Your Grocery-List has {groceryList.length} ingredients in it. </span>
+                                        <span className='userStat'>
+                                            <div className='iconBox'>
+                                                <i className="fas fa-shopping-bag bagIcon"></i>
+                                            </div> • Grocery-Bag has {groceryBag.length} recipes in it. </span>
+                                        <span className='userStat'><div className='iconBox'><i className="fas fa-scroll scrollIcon"></i></div> • Grocery-List has {groceryList.length} ingredients in it. </span>
                                     </div>
                                 </div>
                             </div>
