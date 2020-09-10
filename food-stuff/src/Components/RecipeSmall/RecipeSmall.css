@@ -3,14 +3,14 @@
     flex-direction: column;
     align-items: center;
     border-bottom: double 15px ;
-    padding: 20px 0 40px;
+    padding: 20px 0 20px;
     margin-bottom: 20px;
     max-width: 350px;
 }
-.resultTitle {
+.resultTitleSmall {
     text-decoration: underline;
 }
-.resultImgContainer {
+.resultImgContainerSmall {
     width: 320px;
     height: 239px;
     border: dashed 2px black;
@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
 }
-.resultImg {
+.resultImgSmall {
     width: 312px;
     height: 231px;
     border-radius: 15px;
