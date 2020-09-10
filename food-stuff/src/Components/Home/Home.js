@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Recipe from '../RecipeSmall/RecipeSmall'
 import axios from 'axios'
 
@@ -7,6 +7,7 @@ function Home(props) {
 
     const [searchQuery, setSearchQuery] = useState('')
     const [queryResults, setQueryResults] = useState(null)
+    const _isMounted = useRef(false)
 
     // GET REQUEST FOR RECIPE SEARCH
     const getRecipe = () => {
@@ -22,14 +23,13 @@ function Home(props) {
             "diet":"none",
             "excludeIngredients":"none",
             "intolerances":"none",
-            "number":"10",
+            "number":"100",
             "offset":"0",
-            "type":"main course",
+            "type":"",
             "query":searchQuery
             }
             })
             .then((response)=>{
-                console.log(response.data.results)
                 setQueryResults(response.data.results)
             })
             .catch((error)=>{
@@ -40,8 +40,17 @@ function Home(props) {
     // HANDLE SEARCH/HANDLE CHANGE
     const handleSearch = (evt) => {
         setSearchQuery(evt.target.value)
-        getRecipe()
     }
+
+    // GET SEARCH RESULTS ON STATE CHANGE
+    useEffect(() => {
+        if (_isMounted.current) {
+            console.log(`-${searchQuery}-`)
+            getRecipe()
+        }else {
+            _isMounted.current = true
+        }
+    }, [searchQuery])
 
     // HANDLE SUBMIT
     const handleSubmit = (evt) => {

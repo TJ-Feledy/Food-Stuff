@@ -2,8 +2,7 @@
 
 
 function RecipeSmall(props) {
-    console.log(props)
-    const { id, image, readyInMinutes, servings, title } = props.result
+    const { id, readyInMinutes, servings, title } = props.result
     return (
         <div className='RecipeSmall'>
             <h4 className='resultTitleSmall'>{title}</h4>
