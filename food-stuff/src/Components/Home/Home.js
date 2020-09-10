@@ -59,6 +59,13 @@ function Home(props) {
         getRecipe()
     }
 
+    let userData = {
+        id: 1,
+        username: 'TJ',
+        groceryList: [],
+        groceryBag: []
+    }
+
     return (
         <div className='Home'>
             <h1 className='pageHeading'>HOME</h1>
@@ -69,7 +76,9 @@ function Home(props) {
             <section className='resultsContainer'>
                 <ul className='resultsList'>
                     {
-                        queryResults === null ? null :
+                        searchQuery.length === 0 ? 
+                            <h2 className='whatSoundsGood'></h2>
+                        :
                         queryResults.length === 0 ? <h5 className='noResults'>no results...</h5>:
                         queryResults.map((result, index) => {
                             return <Recipe result={result} key={index} />
