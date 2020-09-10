@@ -9,6 +9,7 @@
     align-items: center;
     height: 90%;
 }
+
 .searchForm {
     position: fixed;
     top: 110px;
@@ -42,6 +43,7 @@
     font-size: small;
     color: lightskyblue;
 }
+
 .resultsContainer {
     height: 100%;
     width: 100%;
@@ -54,4 +56,25 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.summaryContainer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userStatsContainerWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 350px;
+    width: 23em;
+}
+.userStatsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
 }

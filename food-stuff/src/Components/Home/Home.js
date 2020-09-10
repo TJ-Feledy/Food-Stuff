@@ -61,11 +61,13 @@ function Home(props) {
 
     let userData = {
         id: 1,
-        username: 'TJ',
+        username: 'teej387',
+        firstName: 'TJ',
         groceryList: [],
         groceryBag: []
     }
 
+    const { firstName, groceryBag, groceryList } = userData
     return (
         <div className='Home'>
             <h1 className='pageHeading'>HOME</h1>
@@ -75,9 +77,20 @@ function Home(props) {
             </form>
             <section className='resultsContainer'>
                 <ul className='resultsList'>
+                    {/* IF THERE IS NOTHING BEING SEARCHED: RETURN A USER'S SUMMARY
+                        ELSE IF THE SEARCH RETURNS 0 RESULTS: RETURN JSX SAYING NO RESULTS...
+                        ELSE RETURN A LIST OF RECIPE COMPONENTS */}
                     {
                         searchQuery.length === 0 ? 
-                            <h2 className='whatSoundsGood'></h2>
+                            <div className='summaryContainer'>
+                                <h3 className='hiUser'>Hello {firstName}, let's see what we can find to eat.</h3>
+                                <div className='userStatsContainerWrapper'>
+                                    <div className='userStatsContainer'>
+                                        <span className='userStat'><i className="fas fa-shopping-bag bagIcon"></i>Your Grocery-Bag has {groceryBag.length} recipes in it. </span>
+                                        <span className='userStat'><i className="fas fa-scroll scrollIcon"></i>Your Grocery-List has {groceryList.length} ingredients in it. </span>
+                                    </div>
+                                </div>
+                            </div>
                         :
                         queryResults.length === 0 ? <h5 className='noResults'>no results...</h5>:
                         queryResults.map((result, index) => {
