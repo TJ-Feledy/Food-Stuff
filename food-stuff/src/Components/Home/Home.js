@@ -6,7 +6,7 @@ import axios from 'axios'
 function Home(props) {
 
     const [searchQuery, setSearchQuery] = useState('')
-    const [queryResults, setQueryResults] = useState(null)
+    const [queryResults, setQueryResults] = useState([])
     const _isMounted = useRef(false)
 
     // GET REQUEST FOR RECIPE SEARCH
