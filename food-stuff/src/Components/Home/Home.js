@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Recipe from '../RecipeSmall/RecipeSmall'
 import axios from 'axios'
 
@@ -6,7 +6,8 @@ import axios from 'axios'
 function Home(props) {
 
     const [searchQuery, setSearchQuery] = useState('')
-    const [queryResults, setQueryResults] = useState(null)
+    const [queryResults, setQueryResults] = useState([])
+    const _isMounted = useRef(false)
 
     // GET REQUEST FOR RECIPE SEARCH
     const getRecipe = () => {
@@ -22,14 +23,13 @@ function Home(props) {
             "diet":"none",
             "excludeIngredients":"none",
             "intolerances":"none",
-            "number":"10",
+            "number":"100",
             "offset":"0",
-            "type":"main course",
+            "type":"",
             "query":searchQuery
             }
             })
             .then((response)=>{
-                console.log(response.data.results)
                 setQueryResults(response.data.results)
             })
             .catch((error)=>{
@@ -40,8 +40,17 @@ function Home(props) {
     // HANDLE SEARCH/HANDLE CHANGE
     const handleSearch = (evt) => {
         setSearchQuery(evt.target.value)
-        getRecipe()
     }
+
+    // GET SEARCH RESULTS ON STATE CHANGE
+    useEffect(() => {
+        if (_isMounted.current) {
+            console.log(`-${searchQuery}-`)
+            getRecipe()
+        }else {
+            _isMounted.current = true
+        }
+    }, [searchQuery])
 
     // HANDLE SUBMIT
     const handleSubmit = (evt) => {
@@ -50,6 +59,15 @@ function Home(props) {
         getRecipe()
     }
 
+    let userData = {
+        id: 1,
+        username: 'teej387',
+        firstName: 'TJ',
+        groceryList: [],
+        groceryBag: []
+    }
+
+    const { firstName, groceryBag, groceryList } = userData
     return (
         <div className='Home'>
             <h1 className='pageHeading'>HOME</h1>
@@ -59,8 +77,24 @@ function Home(props) {
             </form>
             <section className='resultsContainer'>
                 <ul className='resultsList'>
+                    {/* IF THERE IS NOTHING BEING SEARCHED: RETURN A USER'S SUMMARY
+                        ELSE IF THE SEARCH RETURNS 0 RESULTS: RETURN JSX SAYING NO RESULTS...
+                        ELSE RETURN A LIST OF RECIPE COMPONENTS */}
                     {
-                        queryResults === null ? null :
+                        searchQuery.length === 0 ? 
+                            <div className='summaryContainer'>
+                                <h3 className='hiUser'>Hello {firstName}, let's see what we can find to eat.</h3>
+                                <div className='userStatsContainerWrapper'>
+                                    <div className='userStatsContainer'>
+                                        <span className='userStat'>
+                                            <div className='iconBox'>
+                                                <i className="fas fa-shopping-bag bagIcon"></i>
+                                            </div> • Grocery-Bag has {groceryBag.length} recipes in it. </span>
+                                        <span className='userStat'><div className='iconBox'><i className="fas fa-scroll scrollIcon"></i></div> • Grocery-List has {groceryList.length} ingredients in it. </span>
+                                    </div>
+                                </div>
+                            </div>
+                        :
                         queryResults.length === 0 ? <h5 className='noResults'>no results...</h5>:
                         queryResults.map((result, index) => {
                             return <Recipe result={result} key={index} />
