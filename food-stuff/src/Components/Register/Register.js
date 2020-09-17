@@ -45,7 +45,7 @@ class Register extends React.Component {
         return (
             <div className='Register'>
                 <h2 className='welcome'>Welcome to Food-Stuff!</h2>
-                <h4 className='registerIntro'>Please create a username and password to get started.</h4>
+                <h4 className='registerIntro'>Please create an account to get started.</h4>
                 <form className='registerForm'>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='username'>Username</label>
