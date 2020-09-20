@@ -5,7 +5,7 @@ import Link from 'next/link'
 const HamIcon = (props) => {
 
     return (
-        <div className={props.clicked ? 'hamIconContainerClicked' : 'hamIconContainer'}>
+        <div className={props.clicked ? 'hamIconContainerClicked clickable' : 'hamIconContainer clickable'}>
             <i className="fas fa-bars hamIcon"></i>
         </div>
     )
@@ -22,18 +22,24 @@ const ClickedMenu = (props) => {
 }
 
 const Menu = (props) => {
-    const [ toggleMenu, setToggleMenu ] = useState(false)
+    const [ toggleMenu, setToggleMenu ] = useState(true)
 
     const menuClick = (evt) => {
-        console.log(evt.target)
         setToggleMenu(!toggleMenu)
     }
 
     return (
         <div className='Menu' onClick={menuClick}>
-            <HamIcon name='menu' clicked={toggleMenu} />
+            <HamIcon clicked={toggleMenu} />
             {
-                toggleMenu ? <div>hi</div> : null
+                toggleMenu ? 
+                (<div className='dropMenu'>
+                    <Link href='/home'><a title='Home' className='menuItem'>Home</a></Link>
+                    <Link href='#'><a title='Grocery Bag' className='menuItem'>Grocery-Bag</a></Link>
+                    <Link href='#'><a title='Grocery List' className='menuItem'>Grocery-List</a></Link>
+                    <Link href='/'><a title='Log Out' className='menuItem'>Log Out</a></Link>
+                </div>)
+                : null
             }
         </div>
     )
