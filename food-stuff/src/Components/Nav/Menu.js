@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 
+const HamIcon = () => {
+    return (
+        <div className='hamIconContainer'>
+            <i className="fas fa-bars hamIcon"></i>
+        </div>
+    )
+}
+
 const ClickedMenu = (props) => {
     const [ userData, setUserData ] = useState({})
 
@@ -16,13 +24,12 @@ const Menu = (props) => {
     const [ toggleMenu, setToggleMenu ] = useState(false)
 
     const menuClick = (evt) => {
-        console.log('clicked', toggleMenu)
         setToggleMenu(!toggleMenu)
     }
 
     return (
         <div className='Menu' onClick={menuClick}>
-            <div>menu</div>
+            <HamIcon />
             {
                 toggleMenu ? <div>hi</div> : null
             }
