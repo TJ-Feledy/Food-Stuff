@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 
-const HamIcon = () => {
+const HamIcon = (props) => {
+
     return (
-        <div className='hamIconContainer'>
+        <div className={props.clicked ? 'hamIconContainerClicked' : 'hamIconContainer'}>
             <i className="fas fa-bars hamIcon"></i>
         </div>
     )
@@ -24,12 +25,13 @@ const Menu = (props) => {
     const [ toggleMenu, setToggleMenu ] = useState(false)
 
     const menuClick = (evt) => {
+        console.log(evt.target)
         setToggleMenu(!toggleMenu)
     }
 
     return (
         <div className='Menu' onClick={menuClick}>
-            <HamIcon />
+            <HamIcon name='menu' clicked={toggleMenu} />
             {
                 toggleMenu ? <div>hi</div> : null
             }
