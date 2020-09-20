@@ -16,7 +16,10 @@ const ClickedMenu = (props) => {
 
     return (
         <div className='ClickedMenu'>
-
+            <Link href='/home'><a title='Home' className='menuItem'>Home</a></Link>
+            <Link href='#'><a title='Grocery Bag' className='menuItem'>Grocery-Bag</a></Link>
+            <Link href='#'><a title='Grocery List' className='menuItem'>Grocery-List</a></Link>
+            <Link href='/'><a title='Log Out' className='menuItem'>Log Out</a></Link>
         </div>
     )
 }
@@ -34,10 +37,7 @@ const Menu = (props) => {
             {
                 toggleMenu ? 
                 (<div className='dropMenu'>
-                    <Link href='/home'><a title='Home' className='menuItem'>Home</a></Link>
-                    <Link href='#'><a title='Grocery Bag' className='menuItem'>Grocery-Bag</a></Link>
-                    <Link href='#'><a title='Grocery List' className='menuItem'>Grocery-List</a></Link>
-                    <Link href='/'><a title='Log Out' className='menuItem'>Log Out</a></Link>
+                    <ClickedMenu />
                 </div>)
                 : null
             }
