@@ -4,6 +4,7 @@ class Register extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            firstName: '',
             username: '',
             password: '',
             passColor: 'red',
@@ -28,7 +29,7 @@ class Register extends React.Component {
             })
 
             // check that all fields are ready to submit and change displayButton accordingly
-            if (this.state.username.length > 0 && this.state.password.length >= 8) {
+            if (this.state.username.length > 0 && this.state.password.length >= 8 && this.state.firstName.length > 0) {
                 this.setState({
                     displayButton: true
                 })
@@ -45,8 +46,12 @@ class Register extends React.Component {
         return (
             <div className='Register'>
                 <h2 className='welcome'>Welcome to Food-Stuff!</h2>
-                <h4 className='registerIntro'>Please create a username and password to get started.</h4>
+                <h4 className='registerIntro'>Please create an account to get started.</h4>
                 <form className='registerForm'>
+                    <div className='registerInputContainer'>
+                        <label className='registerLabel' to='firstName'>First Name</label>
+                        <input className='registerInput' type='text' id='firstName' name='firstName' value={this.state.firstName} required onChange={this.changeHandler}/>
+                    </div>
                     <div className='registerInputContainer'>
                         <label className='registerLabel' to='username'>Username</label>
                         <input className='registerInput' type='text' id='username' name='username' value={this.state.username} required onChange={this.changeHandler}/>
