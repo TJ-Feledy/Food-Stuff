@@ -15,3 +15,13 @@
 .loginLink:hover {
     text-decoration: underline;
 }
+
+/* MENU */
+
+.hamIconContainer {
+    border: 1px solid darkred;
+    
+    .hamIcon {
+        color: darkred;
+    }
+}
