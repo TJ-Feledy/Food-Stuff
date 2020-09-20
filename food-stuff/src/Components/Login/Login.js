@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'next/router'
 
 
 class Register extends React.Component {
@@ -42,6 +43,11 @@ class Register extends React.Component {
     }
 
     
+    handleClick = (evt) => {
+        evt.preventDefault()
+        this.props.router.push('/home')
+    }
+    
     render() {
         return (
             <div className='Register'>
@@ -57,11 +63,11 @@ class Register extends React.Component {
                         <input className='registerInput' autoComplete='off' type='text' id='password' name='password' minLength='8' value={this.state.password} required onChange={this.changeHandler} />
                         <h6 className='passwordRequirement' style={{color: this.state.passColor}}>* Password must contain 8 characters</h6>
                     </div>
-                    {this.state.displayButton ? <button className='submitButton'>Log In</button> : null}
+                    {this.state.displayButton ? <button className='submitButton' onClick={this.handleClick} >Log In</button> : null}
                 </form>
             </div>
         )
     }
 }
 
-export default Register
+export default withRouter(Register)
