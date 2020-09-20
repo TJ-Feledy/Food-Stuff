@@ -22,7 +22,7 @@ const ClickedMenu = (props) => {
 }
 
 const Menu = (props) => {
-    const [ toggleMenu, setToggleMenu ] = useState(true)
+    const [ toggleMenu, setToggleMenu ] = useState(false)
 
     const menuClick = (evt) => {
         setToggleMenu(!toggleMenu)
