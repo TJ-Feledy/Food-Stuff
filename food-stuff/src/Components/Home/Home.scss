@@ -29,6 +29,10 @@
     justify-content: center;
     align-items: center;
 }
+.searchBarLabel:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px lightskyblue;
+}
 .searchBar {
     border-radius: 8px;
     border-width: 2px;
@@ -52,8 +56,16 @@
         color: darkred;
     }
 }
+.toTop:focus {
+    outline: none;
+    box-shadow: 0 0 5px 5px lightskyblue;
+    border-radius: 100%;
+    background-color: lightskyblue;
+}
 .upIcon {
     font-size: 2.5rem;
+    background-color: white;
+    border-radius: 100%;
 }
 
 .resultsContainer {

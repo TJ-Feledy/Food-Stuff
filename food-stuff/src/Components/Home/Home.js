@@ -41,7 +41,9 @@ function Home(props) {
 
   // HANDLE SEARCH/HANDLE CHANGE
   const handleSearch = evt => {
-    setSearchQuery(evt.target.value);
+    if (evt.keyCode === 13) {
+      setSearchQuery(document.getElementById('searchBar').value);
+    }
   };
 
   // GET SEARCH RESULTS ON STATE CHANGE
@@ -57,7 +59,7 @@ function Home(props) {
   // HANDLE SUBMIT
   const handleSubmit = evt => {
     evt.preventDefault();
-    setSearchQuery(searchQuery);
+    setSearchQuery(document.getElementById('searchBar').value);
     getRecipe();
   };
 
@@ -92,13 +94,13 @@ function Home(props) {
           type="text"
           placeholder="Search for a recipe"
           autoComplete="off"
-          onChange={handleSearch}
+          onKeyDown={handleSearch}
           ref={ref}
         />
-        {!inView && <div className='toTop' onClick={scrollToTop} title="Scroll to top"><i className="fas fa-chevron-circle-up upIcon"></i></div>}
-        <label className="searchBarLabel" to="searchBar" onClick={handleSubmit}>
+        <label className="searchBarLabel" to="searchBar" tabIndex='0' onClick={handleSubmit} onKeyDown={handleSearch}>
           <i className="fas fa-search searchIcon"></i>
         </label>
+        {!inView && <div className='toTop' onClick={scrollToTop} tabIndex='0' title="Scroll to top"><i className="fas fa-chevron-circle-up upIcon"></i></div>}
       </form>
       <section className="resultsContainer">
         <ul className="resultsList">
