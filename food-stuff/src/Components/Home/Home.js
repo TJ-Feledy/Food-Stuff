@@ -61,6 +61,14 @@ function Home(props) {
     getRecipe();
   };
 
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
+
   const { ref, inView, entry } = useInView({threshold: 0})
 
   // ***************** DUMMY DATA ************************
@@ -87,6 +95,7 @@ function Home(props) {
           onChange={handleSearch}
           ref={ref}
         />
+        {!inView && <div className='toTop' onClick={scrollToTop} title="Scroll to top"><i className="fas fa-chevron-circle-up upIcon"></i></div>}
         <label className="searchBarLabel" to="searchBar" onClick={handleSubmit}>
           <i className="fas fa-search searchIcon"></i>
         </label>

@@ -43,6 +43,18 @@
     font-size: small;
     color: lightskyblue;
 }
+.toTop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: lightskyblue;
+    :hover {
+        color: darkred;
+    }
+}
+.upIcon {
+    font-size: 2.5rem;
+}
 
 .resultsContainer {
     height: 100%;
