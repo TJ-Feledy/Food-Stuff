@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Recipe from "../RecipeSmall/RecipeSmall";
 import axios from "axios";
+import { useInView } from "react-intersection-observer"
 
 function Home(props) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -60,6 +61,9 @@ function Home(props) {
     getRecipe();
   };
 
+  const { ref, inView, entry } = useInView({threshold: 0})
+
+  // ***************** DUMMY DATA ************************
   let userData = {
     id: 1,
     username: "teej387",
@@ -67,6 +71,7 @@ function Home(props) {
     groceryList: [],
     groceryBag: [],
   };
+  // *****************************************************
 
   const { firstName, groceryBag, groceryList } = userData;
   return (
@@ -80,6 +85,7 @@ function Home(props) {
           placeholder="Search for a recipe"
           autoComplete="off"
           onChange={handleSearch}
+          ref={ref}
         />
         <label className="searchBarLabel" to="searchBar" onClick={handleSubmit}>
           <i className="fas fa-search searchIcon"></i>
