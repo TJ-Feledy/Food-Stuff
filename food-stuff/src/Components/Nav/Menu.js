@@ -26,13 +26,22 @@ const ClickedMenu = (props) => {
 
 const Menu = (props) => {
     const [ toggleMenu, setToggleMenu ] = useState(false)
+    
+    useEffect(() => {
+        const menu = document.getElementById('Menu')
+        document.addEventListener('click', evt => {
+            const notClicked = !menu.contains(evt.target)
+            notClicked && setToggleMenu(false)
+        })
+    })
 
     const menuClick = (evt) => {
         setToggleMenu(!toggleMenu)
     }
 
+
     return (
-        <div className='Menu' onClick={menuClick}>
+        <div id='Menu' className='Menu' onClick={menuClick}>
             <HamIcon clicked={toggleMenu} />
             {
                 toggleMenu ? 
